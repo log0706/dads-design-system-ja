@@ -1,0 +1,22 @@
+# Official DADS snapshot: fetch locally from the official distribution source.
+references/official/
+references/.official-*/
+
+# Download and update artifacts
+*.zip
+*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Playwright and local preview artifacts
+.playwright/
+.playwright-cli/
+output/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

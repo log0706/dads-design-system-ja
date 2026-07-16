@@ -1,0 +1,6 @@
+interface:
+  display_name: "DADS Design System JA"
+  short_description: "DADS公式情報を参照する日本語UI設計・実装・レビューSkill"
+  default_prompt: "Use $dads-design-system-ja to design, implement, or review this Japanese UI with the official DADS guidance."
+policy:
+  allow_implicit_invocation: true
