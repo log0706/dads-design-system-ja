@@ -121,9 +121,7 @@
     body[data-view="form"] .screen-form,
     body[data-view="dashboard"] .screen-dashboard,
     body[data-view="table"] .screen-table,
-    body[data-view="cover"] .screen-cover { display: block; }
-    body[data-view="cover"] .app-header,
-    body[data-view="cover"] .skip-link { display: none; }
+    body[data-view="cover"] .screen-form { display: block; }
 
     .page-shell { max-width: 1220px; margin: 0 auto; padding: 28px 40px 48px; }
     .breadcrumb { display: flex; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; color: var(--ink-subtle); font-size: 14px; }
@@ -285,58 +283,38 @@
     .page-button { min-width: 44px; min-height: 44px; color: var(--blue-900); background: #fff; border: 1px solid var(--blue-900); border-radius: 4px; font-weight: 700; }
     .page-button[aria-current="page"] { color: #fff; background: var(--blue-900); }
 
-    .screen-cover {
-      min-height: 100vh;
-      overflow: hidden;
-      color: #fff;
-      background:
-        radial-gradient(circle at 85% 12%, rgb(65 116 255 / 48%), transparent 28%),
-        linear-gradient(135deg, #071431 0%, #0017c1 60%, #003ee5 100%);
-    }
-    .cover-shell {
-      width: 1280px;
-      height: 640px;
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 50px;
-      align-items: center;
-      padding: 58px 72px;
-      position: relative;
-    }
-    .cover-shell::after {
-      content: "";
-      position: absolute;
-      width: 340px;
-      height: 340px;
-      left: -110px;
-      bottom: -210px;
-      border: 40px solid rgb(255 255 255 / 7%);
-      border-radius: 50%;
-    }
-    .cover-badge { display: inline-flex; padding: 7px 13px; color: #071431; background: #fff; border-radius: 999px; font-size: 14px; font-weight: 800; letter-spacing: .04em; }
-    .cover-title { margin: 20px 0 10px; font-size: 58px; line-height: 1.08; letter-spacing: -.03em; }
-    .cover-subtitle { margin: 0; max-width: 580px; color: #e8eeff; font-size: 22px; line-height: 1.65; }
-    .cover-points { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
-    .cover-point { padding: 7px 12px; background: rgb(255 255 255 / 12%); border: 1px solid rgb(255 255 255 / 38%); border-radius: 5px; font-size: 14px; font-weight: 700; }
-    .cover-url { margin-top: 28px; font-size: 16px; font-weight: 700; letter-spacing: .02em; }
-
-    .preview-window { padding: 13px; background: #fff; border: 1px solid rgb(255 255 255 / 55%); border-radius: 14px; box-shadow: 0 28px 70px rgb(0 0 0 / 32%); transform: rotate(-1.5deg); }
-    .window-bar { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 5px; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: #c8c8c8; }
-    .mini-ui { color: var(--ink); background: #f5f6f8; border: 1px solid #d8d8d8; border-radius: 7px; overflow: hidden; }
-    .mini-header { height: 52px; display: flex; align-items: center; gap: 10px; padding: 0 18px; color: #fff; background: var(--blue-1000); }
-    .mini-mark { width: 26px; height: 26px; display: grid; place-items: center; color: var(--blue-1000); background: #fff; border-radius: 50%; font-size: 12px; font-weight: 800; }
-    .mini-content { display: grid; grid-template-columns: 1.2fr .8fr; gap: 14px; padding: 18px; }
-    .mini-card { padding: 15px; background: #fff; border: 1px solid #d8d8d8; border-radius: 6px; }
-    .mini-line { height: 8px; margin: 8px 0; background: #d5d8df; border-radius: 2px; }
-    .mini-line.dark { width: 58%; background: #303642; }
-    .mini-line.short { width: 72%; }
-    .mini-input { height: 34px; margin-top: 12px; border: 2px solid #767676; border-radius: 3px; }
-    .mini-button { width: 96px; height: 34px; margin: 14px 0 0 auto; background: var(--blue-900); border-radius: 4px; }
-    .mini-metric { margin-bottom: 12px; padding: 12px; background: #fff; border-left: 4px solid var(--blue-900); }
-    .mini-number { color: var(--ink); font-size: 24px; font-weight: 800; }
-    .mini-chart { height: 86px; display: flex; align-items: end; gap: 7px; padding: 10px; background: #fff; border: 1px solid #d8d8d8; }
-    .mini-chart span { flex: 1; background: var(--blue-900); border-radius: 2px 2px 0 0; }
+    /* Share view: show the real form UI at a presentation-friendly scale. */
+    body[data-view="cover"] { font-size: 18px; }
+    body[data-view="cover"] .app-header { height: 100px; gap: 38px; padding: 0 56px; }
+    body[data-view="cover"] .brand { min-width: 340px; gap: 16px; }
+    body[data-view="cover"] .brand-mark { width: 54px; height: 54px; font-size: 26px; }
+    body[data-view="cover"] .brand-name { font-size: 25px; }
+    body[data-view="cover"] .brand-kicker { font-size: 16px; }
+    body[data-view="cover"] .global-nav a { padding: 0 24px; font-size: 19px; }
+    body[data-view="cover"] .header-button { min-height: 52px; padding: 10px 20px; font-size: 18px; }
+    body[data-view="cover"] .screen-form { min-height: calc(100vh - 100px); }
+    body[data-view="cover"] .page-shell { max-width: 1540px; padding: 34px 56px 72px; }
+    body[data-view="cover"] .breadcrumb { margin-bottom: 22px; font-size: 17px; }
+    body[data-view="cover"] .eyebrow { font-size: 17px; }
+    body[data-view="cover"] h1 { font-size: 48px; }
+    body[data-view="cover"] .lead { margin-top: 12px; max-width: 980px; font-size: 21px; }
+    body[data-view="cover"] .progress { margin: 28px 0; }
+    body[data-view="cover"] .progress li { padding: 18px 22px 18px 64px; font-size: 20px; }
+    body[data-view="cover"] .progress .step-number { left: 20px; top: 16px; width: 34px; height: 34px; font-size: 18px; }
+    body[data-view="cover"] .form-layout { grid-template-columns: minmax(0, 1fr) 430px; gap: 34px; }
+    body[data-view="cover"] .form-panel { padding: 34px 42px; }
+    body[data-view="cover"] .form-panel > h2 { padding-bottom: 20px; font-size: 30px; }
+    body[data-view="cover"] .field-grid { gap: 26px 30px; margin-top: 28px; }
+    body[data-view="cover"] .field label { margin-bottom: 8px; font-size: 19px; }
+    body[data-view="cover"] .required { font-size: 16px; }
+    body[data-view="cover"] .input,
+    body[data-view="cover"] .select { min-height: 58px; }
+    body[data-view="cover"] .support { margin-top: 7px; font-size: 16px; }
+    body[data-view="cover"] .side-card { padding: 30px 34px; }
+    body[data-view="cover"] .side-card h2 { font-size: 27px; }
+    body[data-view="cover"] .check-list li { padding: 17px 0 17px 38px; font-size: 19px; }
+    body[data-view="cover"] .check-list li::before { top: 15px; font-size: 22px; }
+    body[data-view="cover"] .side-link { margin-top: 18px; font-size: 18px; }
 
     @media (max-width: 900px) {
       .app-header { padding: 0 18px; }
@@ -560,27 +538,6 @@
       </div>
     </section>
 
-    <section class="screen screen-cover" aria-label="DADS Design System JAの紹介">
-      <div class="cover-shell">
-        <div>
-          <span class="cover-badge">UNOFFICIAL CODEX SKILL</span>
-          <h1 class="cover-title">DADS Design<br>System JA</h1>
-          <p class="cover-subtitle">DADS公式情報を参照して、日本語の公共・業務サービスUIを設計・実装・レビューする。</p>
-          <div class="cover-points"><span class="cover-point">アクセシビリティ</span><span class="cover-point">日本語フォーム</span><span class="cover-point">React / Tailwind</span><span class="cover-point">業務UI</span></div>
-          <div class="cover-url">github.com/log0706/dads-design-system-ja</div>
-        </div>
-        <div class="preview-window" aria-hidden="true">
-          <div class="window-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="mini-ui">
-            <div class="mini-header"><span class="mini-mark">ま</span><strong>まちの手続き</strong></div>
-            <div class="mini-content">
-              <div class="mini-card"><div class="mini-line dark"></div><div class="mini-line short"></div><div class="mini-input"></div><div class="mini-input"></div><div class="mini-button"></div></div>
-              <div><div class="mini-metric"><div class="mini-line short"></div><div class="mini-number">92.4%</div></div><div class="mini-chart"><span style="height:42%"></span><span style="height:68%"></span><span style="height:55%"></span><span style="height:86%"></span><span style="height:74%"></span></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <script>
